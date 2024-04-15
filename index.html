@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiplication Table</title>
+</head>
+<body>
+
+    <h1>multiplikasyon tubl</h1>
+  <label for="row">Enter first number (2-10):</label>
+  <input type="number" id="row" min="2" max="10">
+  <label for="col">Enter second number (2-10):</label>
+  <input type="number" id="col" min="2" max="10">
+  <br>
+  <button onclick="lamesa()">Start</button>
+  <div id="table-container"></div>
+
+  <script>
+    function lamesa() {
+      var num1 = parseInt(document.getElementById('row').value);
+      var num2 = parseInt(document.getElementById('col').value);
+ 
+      if (num1 < 2 || num1 > 10 || num2 < 2 || num2 > 10) {
+        alert("Please enter numbers between 2 and 10");
+        return;
+      }
+
+      var table = '<table border="1">';
+      for (var i = 1; i <= num1; i++) {
+        table += '<tr>';
+        for (var j = 1; j <= num2; j++) {
+          table += '<td>' + (j * i) + '</td>';
+        }
+        table += '</tr>';
+      }
+      table += '</table>';
+
+      document.getElementById('table-container').innerHTML = table;
+    }
+  </script>
+</body>
+</html>
